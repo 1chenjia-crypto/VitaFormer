@@ -1,0 +1,9 @@
+Example images: six bright-field crops of human liver spheroids from the NViR dataset
+  Dubinsky D, et al. Front. Bioeng. Biotechnol. 2026; doi:10.3389/fbioe.2026.1797474
+  Data: Zenodo record 15374443 ("3D Liver Spheroids Brightfield 256x256 Images + ATP labels"), file images_labeled_cropped_0.2.zip
+  Licence of the Zenodo record: MIT License (checked 2026-11-10 via the Zenodo API). The MIT licence requires that the copyright
+  and permission notice be included with copies; see https://zenodo.org/records/15374443 for the notice. [VERIFY wording before release]
+Files are unchanged copies (study ms12, location B, Echo Revolve microscope, plate 2, day 4):
+  H02, H03, H04 = medium (control) wells; B02 = 0.01 uM, E02 = 22.5 uM, E06 = 90 uM of merck_compound_1.
+plate_map.csv lists these roles for the "Controls" step. The ATP values are NOT included; this example demonstrates the workflow only.
+Recommended setting for these images: "Square side S, box" with S = 256 (the scale validated for NViR in the paper).

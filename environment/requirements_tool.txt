@@ -1,0 +1,8 @@
+# Pinned to the environment used for the frozen model (model_freeze_m2_20261108/env_pip_freeze.txt), Python 3.11.5
+torch==2.6.0
+torchvision==0.21.0   # pulled in by timm; must match the torch build (CPU: install both from the CPU index)
+timm==1.0.27
+numpy==1.26.4
+scipy==1.11.4
+pandas==2.2.3
+pillow==10.4.0

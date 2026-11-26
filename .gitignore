@@ -1,0 +1,13 @@
+# Large binaries are attached to the GitHub Release, not committed
+installer/*.exe
+# Internal build notes and prompts
+_maintainer/
+# OS / editor clutter
+Thumbs.db
+Desktop.ini
+.DS_Store
+~$*
+__pycache__/
+*.pyc
+# Local run folders
+VitaFormer_results/

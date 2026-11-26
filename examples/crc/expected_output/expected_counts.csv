@@ -1,0 +1,3 @@
+image,input_sha256,expected_mask,alive_px,dead_px,bubble_px,foreground_px
+CRC_D12_J4M-CPT-11_WellE7_ChannelBF-2X_Seq0003_RGB_C1.png,9d657386712b9db1be9e8e41ee265bfc79ac500e707ef8ebcfaf9e8a4897fb28,expected_output/masks/CRC_D12_J4M-CPT-11_WellE7_ChannelBF-2X_Seq0003_RGB_C1.png,1632,30429,0,32061
+CRC_D6_CGC_WellD2_ChannelBF-2X_Seq0012_RGB_C1.png,16f0b8e59f4fd6a983691d5d50a8f2aa087357b9d2ee49bd90a29f2e065bcbd9,expected_output/masks/CRC_D6_CGC_WellD2_ChannelBF-2X_Seq0012_RGB_C1.png,9210,0,0,9210

@@ -1,0 +1,20 @@
+{
+  "tool_version": "1.0.0",
+  "weights": "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageB_m2_seed42/final.pth",
+  "weights_sha256": "0f12be44859d06723ebfa35e8416df8cd4b02ff83f3ac153654d0f68df226101",
+  "weights_label": "M2 seed 42 (default)",
+  "device": "cpu",
+  "fp16_autocast": false,
+  "scale": 1.0,
+  "min_region_px": 50,
+  "n_images": 3,
+  "seconds": 124.0,
+  "python": "3.11.5",
+  "torch": "2.6.0+cu124",
+  "mask_values": {
+    "0": "background",
+    "1": "alive",
+    "2": "dead (not externally validated)",
+    "3": "bubble"
+  }
+}

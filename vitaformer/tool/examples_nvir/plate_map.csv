@@ -1,0 +1,7 @@
+image,group,role,compound,concentration_uM
+B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H02.png,ms12_plate2_day4,control,medium,
+B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H03.png,ms12_plate2_day4,control,medium,
+B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H04.png,ms12_plate2_day4,control,medium,
+B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_B02.png,ms12_plate2_day4,sample,merck_compound_1,0.01
+B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_E02.png,ms12_plate2_day4,sample,merck_compound_1,22.5
+B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_E06.png,ms12_plate2_day4,sample,merck_compound_1,90.0

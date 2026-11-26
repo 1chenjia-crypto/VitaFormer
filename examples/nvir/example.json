@@ -1,0 +1,9 @@
+{
+  "name": "Human liver spheroids (NViR, Zenodo 15374443)",
+  "resize_mode": "square_box",
+  "resize_value": 256,
+  "reference": "VitaFormer tool output on CPU (fp32), v1.1.0 validation",
+  "min_agreement": 0.999,
+  "weights_sha256": "0f12be44859d06723ebfa35e8416df8cd4b02ff83f3ac153654d0f68df226101",
+  "images": 6
+}

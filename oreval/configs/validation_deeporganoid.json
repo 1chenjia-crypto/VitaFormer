@@ -1,0 +1,68 @@
+{
+  "runs": {
+    "vf_m2_s42": "validation/work/deeporganoid/vf_m2_s42.csv",
+    "vf_m2_s3407": "validation/work/deeporganoid/vf_m2_s3407.csv",
+    "vf_m2_s2026": "validation/work/deeporganoid/vf_m2_s2026.csv",
+    "segformer_s42": "validation/work/deeporganoid/segformer_s42.csv",
+    "segformer_s3407": "validation/work/deeporganoid/segformer_s3407.csv",
+    "segformer_s2026": "validation/work/deeporganoid/segformer_s2026.csv",
+    "nnunet_s42": "validation/work/deeporganoid/nnunet_s42.csv",
+    "nnunet_s3407": "validation/work/deeporganoid/nnunet_s3407.csv",
+    "nnunet_s2026": "validation/work/deeporganoid/nnunet_s2026.csv"
+  },
+  "metadata": "validation/work/deeporganoid/metadata.csv",
+  "readout": "foreground_area_ratio",
+  "assay": "relative_ctg_activity",
+  "assay_is_normalised": true,
+  "control": {
+    "column": "label_role",
+    "values": [
+      "vehicle_viable_reference"
+    ]
+  },
+  "normalise": {
+    "group_cols": [
+      "CCL"
+    ],
+    "mode": "ratio",
+    "undefined": "nan"
+  },
+  "rows_filter": {
+    "column": "ranking_row",
+    "values": [
+      true
+    ]
+  },
+  "association": {
+    "cluster_cols": [
+      "CCL"
+    ],
+    "strata_col": null,
+    "nboot": 1000,
+    "seed": 20261029
+  },
+  "ranking": {
+    "unit_col": "CCL",
+    "group_col": "Cmpd1",
+    "conc_col": "Conc1",
+    "rows_column": "ranking_row",
+    "rows_values": [
+      true
+    ],
+    "min_units": 5,
+    "nboot": 2000,
+    "seed": 20261030
+  },
+  "families": {
+    "vf_m2_s42": "vf_m2",
+    "vf_m2_s3407": "vf_m2",
+    "vf_m2_s2026": "vf_m2",
+    "segformer_s42": "segformer",
+    "segformer_s3407": "segformer",
+    "segformer_s2026": "segformer",
+    "nnunet_s42": "nnunet",
+    "nnunet_s3407": "nnunet",
+    "nnunet_s2026": "nnunet"
+  },
+  "output": "validation/out_deeporganoid"
+}

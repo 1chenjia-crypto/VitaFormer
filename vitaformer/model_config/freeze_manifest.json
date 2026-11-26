@@ -1,0 +1,87 @@
+{
+ "checkpoints": {
+  "42": {
+   "path": "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageB_m2_seed42/final.pth",
+   "sha256": "0f12be44859d06723ebfa35e8416df8cd4b02ff83f3ac153654d0f68df226101",
+   "bytes": 361037930,
+   "step": 40000,
+   "top_keys": [
+    "step",
+    "model_state"
+   ],
+   "n_tensors": 256,
+   "nonfinite_values": 0
+  },
+  "3407": {
+   "path": "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageC_m2_seed3407/final.pth",
+   "sha256": "1e4bd6afd0a1925094103c991430246b9f1fef09ce5b480e2c47056a7128f585",
+   "bytes": 361037930,
+   "step": 40000,
+   "top_keys": [
+    "step",
+    "model_state"
+   ],
+   "n_tensors": 256,
+   "nonfinite_values": 0
+  },
+  "2026": {
+   "path": "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageC_m2_seed2026/final.pth",
+   "sha256": "c268464ee2ae3ee19e2112fc91ae86a95aa5d95086374df526fda9a7aa3225b8",
+   "bytes": 361037930,
+   "step": 40000,
+   "top_keys": [
+    "step",
+    "model_state"
+   ],
+   "n_tensors": 256,
+   "nonfinite_values": 0
+  }
+ },
+ "code": {
+  "<WORKSPACE>/3D_OrganoidSeg/vco/organoid_seg/model_v2.py": "b13065959206c57e17121ea5f73a02ec3d322342fc5bbcaab17b9d3e936b3f1a",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/organoid_seg/model_v3_multiscale.py": "c3f9efc494a0be7d454bd7f7304a4bf5477c35b5cb65574edb601e9644fe73b2",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/organoid_seg/train_v3_multiscale.py": "400428238eeb23c3e994ed2488c18cc63543afcd8dceca4a4f983e15a02f8ffc",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/organoid_seg/train_v2_stratified.py": "40ecdc3b371f1b031dc85b6f06fa8c22a3a8edfdad82d1012a68454fbcc0f383",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/organoid_seg/dataset_v2.py": "a8c41029d0e8be47e5d949125d7841546c41f99c8af0993e52efc8ee77106e52",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/scripts/a0_m0_val_inference.py": "d9919c2e5a6daf8ce753b9807d25d3460e7ca041013bac46090b91d44a030eba",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/scripts/stageD_final_inference.py": "f73252c8ada74f8e7894b82626a31f4bbe3da771ea34790f18b4e1255b257469",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/scripts/stageF_test_inference.py": "7f8d923ee1da2f85a9e2eecb9eddcaae3cce3578eddd0388a5a8290b5f761a18",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/scripts/stageF_comparison.py": "1c0d4eea7e688188564d6d3ffcb8cfb4af9f44c0432a39973e24c20fe42e9709",
+  "<WORKSPACE>/3D_OrganoidSeg/baselines_fair_20261030/eval_masks_shared.py": "1cd1841259c33dbce1d73b042aeb5e784c15204097188155676332c29252fda9",
+  "<WORKSPACE>/3D_OrganoidSeg/scripts/unified_comparison_20261102.py": "5d8ec0ccdc78dc6e8f15df6878f535530431256c0f980997992500fb7759084d"
+ },
+ "configs": {
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageB_m2_seed42/launch_command.sh": "9b6629111329cbedf8ad9577a8e00a7684c9b74ece4c1225adc55bacac55cd48",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageC_m2_seed3407/launch_command.sh": "MISSING",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageC_m2_seed2026/launch_command.sh": "MISSING",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageB_m2_seed42/summary.json": "060ecc90999bd5b0f24abe07f65fab263f835e4b3a52f60ed2be9d48f303f6ff",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageC_m2_seed3407/summary.json": "db574fca4586b2a7e1123be30d7f9cfc030a8fb08c9dcc69aefeef56bd3d8194",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageC_m2_seed2026/summary.json": "4322a670def2621320144ef36439ca8749cf9c4a44bfbbc5325a0eed71d2216e",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/ARCHITECTURE_EXPLORATION_PLAN.md": "a340755c124f7c750cc28bf6b9750796bc750947d1206a732e31927b91748291",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/AMENDMENT_4_SELECTION_FREE_20261106.md": "aa07f8f8a7a5a514b33be5c0d78f4fccd792cefa24368717aaf2577aedbda5a6",
+  "<WORKSPACE>/3D_OrganoidSeg/vco/runs/arch_exploration_20261104/stageF_m2_test/ANALYSIS_PLAN.md": "1d5a71b4e9644e838ac93633922430bfa6e5814915a684abbdf55cb9d8b70104"
+ },
+ "data": {
+  "<WORKSPACE>/OrganoidSegBaseline/VOC2012/ImageSets/Segmentation/train_cond.txt": {
+   "sha256": "233879af9ea82865a1ded3ee65ce609b4007ce9a3f195c1ff6c108743004e58d",
+   "n": 481
+  },
+  "<WORKSPACE>/OrganoidSegBaseline/VOC2012/ImageSets/Segmentation/val_cond.txt": {
+   "sha256": "849868a10ff9f7c94806697acfcbc6dcec970a5009ead3e151c49b5be6f98b92",
+   "n": 164
+  },
+  "<WORKSPACE>/OrganoidSegBaseline/VOC2012/ImageSets/Segmentation/test_cond.txt": {
+   "sha256": "483b0a28739faca75e6776c9cd202c5a1b2646928d71dab156c4c83dbdbf4b72",
+   "n": 167
+  }
+ },
+ "pretrained": {
+  "<WORKSPACE>/pretrained/biomedclip/open_clip_pytorch_model.bin": "52cc993c5c5ff962bd0c60931874bc001e7e9b41666a385530f4a036294576be"
+ },
+ "env": {
+  "python": "3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0]",
+  "torch": "2.6.0+cu124",
+  "cuda": "12.4",
+  "platform": "Linux-3.10.0-693.el7.x86_64-x86_64-with-glibc2.17"
+ }
+}

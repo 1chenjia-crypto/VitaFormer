@@ -1,0 +1,76 @@
+{
+  "tool": "VitaFormer",
+  "tool_version": "1.1.0",
+  "created": "2026-11-10T16:42:36",
+  "state": "finished",
+  "weights": "/export/home/chenjia/3D_OrganoidSeg/vitaformer_tool/weights/vitaformer_m2_seed42_final.pth",
+  "weights_sha256": "0f12be44859d06723ebfa35e8416df8cd4b02ff83f3ac153654d0f68df226101",
+  "weights_label": "VitaFormer",
+  "device": "cpu",
+  "device_note": "",
+  "fp16_autocast_on_gpu": true,
+  "resize_mode": "square_box",
+  "resize_value": 256.0,
+  "min_region_px": 50,
+  "inference": "224 px window, stride 112, reflect padding, ImageNet normalisation, softmax average, argmax; no threshold, no test-time augmentation, no post-processing",
+  "units": "pixels (no physical calibration applied)",
+  "n_inputs": 6,
+  "n_ok": 6,
+  "n_failed": 0,
+  "elapsed_seconds": 13.7,
+  "software": {
+    "python": "3.11.5",
+    "torch": "2.6.0+cu124",
+    "timm": "1.0.27",
+    "numpy": "1.26.4",
+    "scipy": "1.11.4",
+    "pandas": "2.2.3",
+    "pillow": "10.4.0",
+    "platform": "Linux-3.10.0-693.el7.x86_64-x86_64-with-glibc2.17"
+  },
+  "classes": {
+    "0": "background",
+    "1": "Alive (model class)",
+    "2": "Dead (model class; not externally validated)",
+    "3": "Bubble"
+  },
+  "inputs": [
+    {
+      "index": 1,
+      "image": "B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_B02.png",
+      "source_path": "examples_nvir/input/B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_B02.png",
+      "sha256": "b50578c4d44f0c7f4e9cd4b09e1254838ab64a86d95722c80c971f1cb1905c39"
+    },
+    {
+      "index": 2,
+      "image": "B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_E02.png",
+      "source_path": "examples_nvir/input/B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_E02.png",
+      "sha256": "e17b9ca09ef374bd9b2a3a1137f61c1d202fa52005edb3554b689fdf984651ac"
+    },
+    {
+      "index": 3,
+      "image": "B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_E06.png",
+      "source_path": "examples_nvir/input/B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_E06.png",
+      "sha256": "99606016c5c030f274591d65daf63e24fee2338ea3e0e15df6976aebcd586412"
+    },
+    {
+      "index": 4,
+      "image": "B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H02.png",
+      "source_path": "examples_nvir/input/B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H02.png",
+      "sha256": "f4fccb1aba6d6a94af2dab1625299a992de016bbc5c393b5059dcef0b9ea1d55"
+    },
+    {
+      "index": 5,
+      "image": "B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H03.png",
+      "source_path": "examples_nvir/input/B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H03.png",
+      "sha256": "0b2802a618f197d1b22f36987df6170df5111bbb57c4135be63e4c7cd008de34"
+    },
+    {
+      "index": 6,
+      "image": "B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H04.png",
+      "source_path": "examples_nvir/input/B_ms12_echo_revolve_v0_P0002_D04_2022-09-18_H04.png",
+      "sha256": "6a0bdca74272ac3cf7ed787b2d000b26b9f5c276cb7c1f963dc0de911192a988"
+    }
+  ],
+  "weights_seed": 42
+}

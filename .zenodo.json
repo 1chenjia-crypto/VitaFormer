@@ -1,0 +1,19 @@
+{
+  "title": "VitaFormer: bright-field organoid segmentation (Windows desktop application) v1.1.0",
+  "upload_type": "software",
+  "version": "1.1.0",
+  "description": "Windows desktop application for segmenting bright-field organoid images into background, Alive, Dead and Bubble with the frozen VitaFormer model (training seed 42), with image-level readouts and optional normalisation to control images. The Dead class was not externally validated; see docs/LIMITATIONS.md.",
+  "creators": [
+    {
+      "name": "Chen, Jia"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "organoids",
+    "bright-field imaging",
+    "segmentation",
+    "drug response",
+    "VitaFormer"
+  ]
+}

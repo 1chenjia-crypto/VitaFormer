@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VitaFormer</title>
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<header>
+  <div class="brand">VitaFormer <span id="ver" class="muted"></span></div>
+  <nav>
+    <button class="step active" data-step="import"><span>1</span><b data-i="s_import">Import &amp; segment</b></button>
+    <button class="step" data-step="inspect" disabled><span>2</span><b data-i="s_inspect">Inspect masks</b></button>
+    <button class="step" data-step="controls" disabled><span>3</span><b data-i="s_controls">Controls (optional)</b></button>
+    <button class="step" data-step="export" disabled><span>4</span><b data-i="s_export">Export</b></button>
+  </nav>
+  <div class="right">
+    <span id="device" class="pill"></span>
+    <button id="lang" class="ghost">中文</button>
+  </div>
+</header>
+
+<main>
+<!-- 1 import -->
+<section id="import" class="panel show">
+  <div class="cols">
+    <div class="card grow">
+      <h2 data-i="h_add">Add images</h2>
+      <p class="muted" data-i="p_formats">Accepted: 8-bit greyscale or RGB (PNG, JPEG, TIFF) and single-channel 16-bit TIFF/PNG. One field of view per file. Multi-page files, alpha channels and other formats are rejected with a reason - nothing is converted silently.</p>
+      <div id="drop" class="drop">
+        <p data-i="p_drop">Drop images or a folder here</p>
+        <div class="row">
+          <label class="btn"><input id="pickFiles" type="file" multiple accept=".png,.jpg,.jpeg,.tif,.tiff" hidden><span data-i="b_files">Choose files</span></label>
+          <label class="btn"><input id="pickFolder" type="file" webkitdirectory multiple hidden><span data-i="b_folder">Choose folder</span></label>
+        </div>
+      </div>
+      <table id="fileTable" class="tbl"><thead><tr><th>#</th><th data-i="t_file">File</th><th data-i="t_check">Check</th></tr></thead><tbody></tbody></table>
+      <p id="fileSummary" class="muted"></p>
+    </div>
+    <div class="card side">
+      <h2 data-i="h_settings">Settings</h2>
+      <label data-i="l_name">Run name</label><input id="runName" value="run">
+      <label data-i="l_resize">Input size</label>
+      <select id="resizeMode">
+        <option value="native" data-i="o_native">Native resolution (validated: CRC, DeepOrganoid)</option>
+        <option value="factor_bilinear" data-i="o_factor">Scale factor, bilinear (validated: GemcitabineScreen, 0.25)</option>
+        <option value="square_box" data-i="o_square">Square side S, box (validated: NViR, 256; square images only)</option>
+      </select>
+      <div id="resizeValueRow" class="hidden"><label id="resizeValueLabel">Value</label><input id="resizeValue" type="number" step="any"></div>
+      <p class="note" data-i="n_scale">Large single spheroids may fail at native resolution. Choose the size by checking masks on a few images - never by looking at the functional result you want to study. No automatic size selection is offered.</p>
+      <label data-i="l_out">Results folder</label><input id="outRoot">
+      <p class="note" data-i="n_local">Images are processed on this computer only. Each run is saved in a new folder; nothing is overwritten and your original files are not changed.</p>
+      <div id="weightsBox" class="note"></div>
+      <button id="start" class="primary" disabled data-i="b_start">Start segmentation</button>
+      <div id="progressBox" class="hidden">
+        <div class="bar"><div id="bar"></div></div>
+        <p id="progressText"></p>
+        <button id="cancel" class="ghost" data-i="b_cancel">Cancel (keeps finished images)</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 inspect -->
+<section id="inspect" class="panel">
+  <div class="cols">
+    <div class="card list">
+      <h2 data-i="h_images">Images</h2>
+      <ul id="imgList"></ul>
+      <div id="errBox"></div>
+    </div>
+    <div class="card grow viewerCard">
+      <div class="toolbar">
+        <div class="seg">
+          <button class="vm active" data-mode="overlay" data-i="v_overlay">Overlay</button>
+          <button class="vm" data-mode="original" data-i="v_original">Original</button>
+          <button class="vm" data-mode="mask" data-i="v_mask">Mask</button>
+          <button class="vm" data-mode="side" data-i="v_side">Side by side</button>
+        </div>
+        <label class="inline"><span data-i="l_opacity">Mask opacity</span> <input id="opacity" type="range" min="0" max="100" value="55"></label>
+        <button id="fit" class="ghost" data-i="b_fit">Fit</button>
+        <button id="prev" class="ghost">&larr;</button><button id="next" class="ghost">&rarr;</button>
+      </div>
+      <div id="viewer"><canvas id="cv"></canvas><canvas id="cv2" class="hidden"></canvas></div>
+      <div class="legend">
+        <span><i style="background:#2db44b"></i><b data-i="c_alive">Alive (model class)</b></span>
+        <span><i style="background:#dc322f"></i><b data-i="c_dead">Dead (model class - not externally validated)</b></span>
+        <span><i style="background:#3c82dc"></i><b data-i="c_bubble">Bubble</b></span>
+        <span class="muted" data-i="c_hint">Scroll to zoom, drag to move. Check for missed organoids, edge false positives and merged neighbours.</span>
+      </div>
+    </div>
+    <div class="card side">
+      <h2 data-i="h_measure">Image measurements</h2>
+      <p class="note" data-i="n_tier1">Tier 1: measured from the image alone, in pixels. Not a viability value.</p>
+      <table id="measTable" class="kv"></table>
+    </div>
+  </div>
+</section>
+
+<!-- 3 controls -->
+<section id="controls" class="panel">
+  <div class="card">
+    <h2 data-i="h_controls">Controls and groups (optional)</h2>
+    <p class="muted" data-i="p_controls">Readouts relative to controls divide each image's value by the median of the control images in the same group (for example the same plate and day). Assign a group to every image you want normalised, and mark the control images. Groups are never mixed.</p>
+    <div class="row">
+      <input id="bulkGroup" placeholder="group, e.g. plate1_day3"><button id="applyGroup" class="ghost" data-i="b_setgroup">Set group for selected</button>
+      <button id="markCtrl" class="ghost" data-i="b_ctrl">Mark selected as control</button><button id="markSample" class="ghost" data-i="b_sample">Mark selected as sample</button>
+      <a id="template" class="btn ghost" data-i="b_template">Download table template</a>
+      <label class="btn ghost"><input id="loadMap" type="file" accept=".csv" hidden><span data-i="b_load">Load table (CSV)</span></label>
+    </div>
+    <table id="mapTable" class="tbl"><thead><tr><th><input type="checkbox" id="selAll"></th><th data-i="t_file">File</th><th data-i="t_group">Group</th><th data-i="t_role">Role</th><th data-i="t_area">Foreground area (px)</th></tr></thead><tbody></tbody></table>
+    <div class="row"><button id="preview" class="primary" data-i="b_preview">Check groups</button><button id="applyNorm" class="primary" disabled data-i="b_apply">Create normalised table</button></div>
+    <div id="summary"></div>
+  </div>
+</section>
+
+<!-- 4 export -->
+<section id="export" class="panel">
+  <div class="card">
+    <h2 data-i="h_export">Results</h2>
+    <p data-i="p_saved">All results are already saved in the run folder:</p>
+    <p><code id="runDir"></code></p>
+    <div class="row"><button id="openFolder" class="primary" data-i="b_open">Open folder</button><a id="zip" class="btn ghost" data-i="b_zip">Download as ZIP</a></div>
+    <table class="tbl files">
+      <tr><td><code>masks/</code></td><td data-i="f_masks">Label masks (0 background, 1 Alive, 2 Dead, 3 Bubble), one PNG per image; file names start with the input number.</td></tr>
+      <tr><td><code>overlays/</code></td><td data-i="f_overlays">Overlay previews.</td></tr>
+      <tr><td><code>readouts_image_measurements.csv</code></td><td data-i="f_meas">Tier 1 image measurements in pixels, one row per image, with the input file name.</td></tr>
+      <tr><td><code>normalised_N/</code></td><td data-i="f_norm">Tier 2 readouts relative to controls (only if created), with the plate map and group summary used.</td></tr>
+      <tr><td><code>errors.csv</code></td><td data-i="f_err">Rejected or failed images and the reason.</td></tr>
+      <tr><td><code>run_manifest.json</code></td><td data-i="f_man">Model, weights SHA256, settings, software versions and input checksums.</td></tr>
+    </table>
+    <div class="caveat">
+      <h3 data-i="h_tiers">How to read the outputs</h3>
+      <ul>
+        <li data-i="t1"><b>Image measurements</b> (areas, region count, shape) come from the mask alone. "Region count" counts connected regions; touching organoids merge, so it is not an organoid count.</li>
+        <li data-i="t2"><b>Relative to controls</b> compares images within a group. It is not a viability percentage.</li>
+        <li data-i="t3"><b>Calibrated predictions</b> (for example of CellTiter-Glo) need your own assay data for fitting; this tool does not produce them.</li>
+        <li data-i="t4">Alive and Dead are model classes. Dead predictions have not been externally validated and must not be reported as cell death.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</main>
+<div id="toast" class="hidden"></div>
+<script src="/static/app.js"></script>
+</body>
+</html>

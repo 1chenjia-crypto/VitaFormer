@@ -1,0 +1,31 @@
+{
+  "_source": "Extracted 2026-11-24 from model_v3_multiscale.py / model_v2.py (SHA256 in freeze_manifest.json) and MODEL_FREEZE_M2_20261108.md. Informational; the Python code is authoritative.",
+  "model_class": "model_v3_multiscale.OrganoidSegMultiScale",
+  "constructor_inference": {"weight_path": "random", "num_classes": 4, "freeze_blocks": 0, "zero_cnn_input": false},
+  "constructor_training": {"weight_path": "biomedclip_local/open_clip_pytorch_model.bin", "num_classes": 4, "freeze_blocks": 4, "zero_cnn_input": false},
+  "classes": ["background", "Alive", "Dead", "Bubble"],
+  "input": {"patch": 224, "channels": 3, "normalisation": "x/255 then ImageNet mean [0.485,0.456,0.406] std [0.229,0.224,0.225]"},
+  "encoder": {
+    "backbone": "timm vit_base_patch16_224 (BiomedCLIP visual tower weights at training init)",
+    "token_grid": "14x14, 768 ch",
+    "taps": {"l4": "blocks[3]", "l8": "blocks[7]", "l12": "blocks[11]"},
+    "frozen_during_training": "patch_embed + blocks 1-4 (freeze_blocks=4)"
+  },
+  "projections_1x1": {"l4": 128, "l8": 256, "l12": 256, "each": "Conv1x1(no bias) + BN + GELU"},
+  "cnn_detail_branch": {"stages": 3, "channels": [32, 64, 128], "resolutions_px": [112, 56, 28],
+                        "stage": "Conv3x3 s2 + BN + GELU + Conv3x3 + BN + GELU", "init": "from scratch"},
+  "decoder": {
+    "dec1": "14->28, in 256, skip [l8 256 + cnn28 128], out 256",
+    "dec2": "28->56, in 256, skip [l4 128 + cnn56 64], out 128",
+    "dec3": "56->112, in 128, skip [cnn112 32], out 64",
+    "dec4": "112->224, in 64, no skip, out 32",
+    "head": "Conv1x1 32 -> 4"
+  },
+  "not_in_M2": ["BAM", "MPM", "deep supervision", "morph_head"],
+  "parameters_total": 90234572,
+  "parameters_trainable_in_training": "61.29 M",
+  "checkpoint_format": {"keys": ["step", "model_state"], "step": 40000, "load": "strict=True, weights_only=True"},
+  "inference": {"window": 224, "stride": 112, "pad": "reflect (bottom/right)", "fusion": "softmax average over overlaps",
+                "decision": "argmax", "gpu_precision": "fp16 autocast", "cpu_precision": "fp32",
+                "threshold": null, "tta": false, "post_processing": null, "default_seed": 42}
+}

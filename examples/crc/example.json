@@ -1,0 +1,9 @@
+{
+  "name": "Colorectal cancer organoids (CRC test set)",
+  "resize_mode": "native",
+  "resize_value": null,
+  "reference": "VitaFormer seed 42 test-set masks used in the paper (GPU, fp16 autocast)",
+  "min_agreement": 0.999,
+  "weights_sha256": "0f12be44859d06723ebfa35e8416df8cd4b02ff83f3ac153654d0f68df226101",
+  "images": 2
+}

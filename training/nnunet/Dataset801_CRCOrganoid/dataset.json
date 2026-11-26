@@ -1,0 +1,17 @@
+{
+  "channel_names": {
+    "0": "R",
+    "1": "G",
+    "2": "B"
+  },
+  "labels": {
+    "background": 0,
+    "alive": 1,
+    "dead": 2,
+    "bubble": 3
+  },
+  "numTraining": 645,
+  "file_ending": ".png",
+  "name": "CRCOrganoid",
+  "description": "VitaFormer frozen condition-aware split; test in imagesTs only"
+}

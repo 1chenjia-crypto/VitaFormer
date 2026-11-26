@@ -1,0 +1,1 @@
+14aaf8a807aed7e8f64abdee22f83eabaeb2a15b69e929cea8a1d7d4f0606b19  VitaFormer_Setup_1.1.0.exe

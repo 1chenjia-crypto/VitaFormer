@@ -1,0 +1,11 @@
+{
+  "note": "Label ids are fixed by the frozen M2 checkpoint (num_classes=4). Two colour sets exist: the paper Figure 1B thumbnails (paper_materials_20261110/verification_20261121/scripts/a6_fig1b_thumbnails.py) and the v1.1.0 tool overlay (vitaformer_tool/vitaformer/pipeline.py COLORS). They differ slightly; pick ONE for the software and use the same in Figure 1B.",
+  "classes": [
+    {"id": 0, "name": "background", "fig1b_rgb": [0, 0, 0],       "tool_v1.1.0_overlay_rgb": [0, 0, 0],       "counted_as_foreground": false},
+    {"id": 1, "name": "Alive",      "fig1b_rgb": [60, 180, 75],   "tool_v1.1.0_overlay_rgb": [45, 180, 75],   "counted_as_foreground": true},
+    {"id": 2, "name": "Dead",       "fig1b_rgb": [230, 25, 75],   "tool_v1.1.0_overlay_rgb": [220, 50, 47],   "counted_as_foreground": true, "warning": "model class; NOT externally validated"},
+    {"id": 3, "name": "Bubble",     "fig1b_rgb": [0, 130, 200],   "tool_v1.1.0_overlay_rgb": [60, 130, 220],  "counted_as_foreground": false}
+  ],
+  "foreground_labels_for_readouts": [1, 2],
+  "mask_file_format": "8-bit single-channel PNG (mode L), same H x W as the input image, values 0..3"
+}

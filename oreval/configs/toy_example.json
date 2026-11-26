@@ -1,0 +1,12 @@
+{
+  "runs": {"modelA": "examples/toy/readouts_modelA.csv", "modelB": "examples/toy/readouts_modelB.csv"},
+  "metadata": "examples/toy/metadata.csv",
+  "readout": "foreground_area_px",
+  "assay": "ATP",
+  "control": {"column": "role", "values": ["control"]},
+  "normalise": {"group_cols": ["plate", "line"], "mode": "ratio", "undefined": "nan"},
+  "association": {"cluster_cols": ["plate"], "strata_col": "line", "nboot": 500, "seed": 1},
+  "dose_direction": {"series_cols": ["plate", "line", "drug"], "conc_col": "conc", "min_conc": 4, "min_abs_rho": 0.5, "aggregate": "none"},
+  "ranking": {"unit_col": "line", "group_col": "drug", "conc_col": "conc", "rows_column": "role", "rows_values": ["treated"], "min_units": 3, "nboot": 500, "seed": 1},
+  "output": "examples/toy/output"
+}

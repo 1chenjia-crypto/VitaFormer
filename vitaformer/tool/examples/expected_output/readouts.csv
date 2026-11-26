@@ -1,0 +1,4 @@
+image,preprocessing,scale,height_px,width_px,foreground_area_px,foreground_area_fraction,alive_area_px,dead_area_px_unvalidated,bubble_area_px,n_regions,min_region_px,region_area_median_px,region_area_max_px,region_eq_diameter_median_px,region_circularity_mean,foreground_mean_intensity
+D0_01R-FC_WellB8_ChannelBF-2X_Seq0006_RGB_C1.jpg,uint8 as is,1.0,2044,2048,11153,0.002664286096501957,11153,0,0,49,50,179.0,991,15.09668435477122,1.315365290047405,121.08840942382812
+D12_J4M-CPT-11_WellE7_ChannelBF-2X_Seq0003_RGB_C1.jpg,uint8 as is,1.0,2044,2048,32064,0.007659613502935421,1630,30434,0,51,50,586.0,1482,27.315167457198672,1.1078542085977632,157.89833068847656
+D12_UYW-5-Fu_WellE2_ChannelBF-2X_Seq0008_RGB_C1.jpg,uint8 as is,1.0,2044,2048,4460,0.0010654277764187868,4460,0,0,21,50,192.0,481,15.635280380893438,1.3236514413348064,181.00830078125

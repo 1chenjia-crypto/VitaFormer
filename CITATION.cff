@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "VitaFormer: bright-field organoid segmentation (Windows desktop application)"
+message: "If you use this software, please cite it as below."
+type: software
+version: "1.1.0"
+date-released: "2026-11-24"
+authors:
+  - family-names: "Chen"
+    given-names: "Jia"
+repository-code: "https://github.com/1chenjia-crypto/VitaFormer"
+license: MIT

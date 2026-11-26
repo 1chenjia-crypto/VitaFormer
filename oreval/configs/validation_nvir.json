@@ -1,0 +1,66 @@
+{
+  "runs": {
+    "m2_s42": "validation/work/nvir/m2_s42.csv",
+    "m2_s3407": "validation/work/nvir/m2_s3407.csv",
+    "m2_s2026": "validation/work/nvir/m2_s2026.csv",
+    "segformer_s42": "validation/work/nvir/segformer_s42.csv",
+    "segformer_s3407": "validation/work/nvir/segformer_s3407.csv",
+    "segformer_s2026": "validation/work/nvir/segformer_s2026.csv",
+    "nnunet_s42": "validation/work/nvir/nnunet_s42.csv",
+    "nnunet_s3407": "validation/work/nvir/nnunet_s3407.csv",
+    "nnunet_s2026": "validation/work/nvir/nnunet_s2026.csv"
+  },
+  "metadata": "validation/work/nvir/metadata.csv",
+  "readout": "foreground_area_px",
+  "assay": "ATP",
+  "control": {
+    "column": "compound",
+    "values": [
+      "medium"
+    ]
+  },
+  "normalise": {
+    "group_cols": [
+      "location",
+      "microscope",
+      "study",
+      "plate",
+      "day"
+    ],
+    "mode": "ratio",
+    "undefined": "nan"
+  },
+  "rows_filter": {
+    "column": "split",
+    "values": [
+      "test"
+    ]
+  },
+  "association": {
+    "cluster_cols": [
+      "location",
+      "study",
+      "plate",
+      "day"
+    ],
+    "strata_col": "domain",
+    "nboot": 2000,
+    "seed": 20261109
+  },
+  "dose_direction": {
+    "series_cols": [
+      "study",
+      "compound",
+      "day"
+    ],
+    "conc_col": "concentration_uM",
+    "min_conc": 4,
+    "min_abs_rho": 0.5,
+    "rows_column": "treatment",
+    "rows_values": [
+      "drug"
+    ],
+    "aggregate": "none"
+  },
+  "output": "validation/out_nvir"
+}
