@@ -14,8 +14,11 @@ described in the accompanying paper.
 ## Repository contents
 
 This repository contains the Windows desktop application (documentation, examples and checks; the installer itself is
-archived on Zenodo) and the code used for the accompanying paper. Model weights, result tables, splits and figure
-source data are archived on Zenodo ([DOI added after the first release]). No third-party image data are distributed.
+archived on Zenodo, https://doi.org/10.5281/zenodo.24554415) and the code used for the accompanying paper. The installer contains the frozen VitaFormer
+weights of training seed 42; the weights of all three training seeds and the result tables will be added to the same
+Zenodo record in a later version. No third-party image data are distributed.
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24554415.svg)](https://doi.org/10.5281/zenodo.24554415)
 
 | Folder | Content |
 |---|---|
@@ -119,7 +122,7 @@ The check compares your masks with the expected masks pixel by pixel and reports
 
 If you use VitaFormer, please cite the software archive:
 
-> Chen J. VitaFormer: bright-field organoid segmentation (Windows desktop application), version 1.1.0. Zenodo. [DOI added after the first release]
+> Chen J. VitaFormer: bright-field organoid segmentation (Windows desktop application), version 1.1.0. Zenodo. https://doi.org/10.5281/zenodo.24554415
 
 and the accompanying paper once it is published (the citation will be added here). A machine-readable citation is in
 `CITATION.cff`.
